@@ -53,6 +53,3 @@ export const contactsSlice = createSlice({
     },
   },
 });
-
-// export const { fetchContacts, addContact, deleteContact } =
-//   contactsSlice.actions;
