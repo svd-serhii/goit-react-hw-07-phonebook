@@ -37,7 +37,7 @@ export const contactsSlice = createSlice({
       if (state.items.find(({ name }) => name === action.payload.name)) {
         return alert(`${action.payload.name} is already in contacts.`);
       }
-      state.items.push(action.payload);
+      state.items.unshift(action.payload);
       state.isLoading = false;
       state.error = null;
     },
