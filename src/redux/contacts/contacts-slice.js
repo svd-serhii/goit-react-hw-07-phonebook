@@ -34,9 +34,12 @@ export const contactsSlice = createSlice({
       state.error = action.payload;
     },
     [addContact.fulfilled]: (state, action) => {
+      if (state.items.find(({ name }) => name === action.payload.name)) {
+        return alert(`${action.payload.name} is already in contacts.`);
+      }
+      state.items.push(action.payload);
       state.isLoading = false;
       state.error = null;
-      state.items.push(action.payload);
     },
     [deleteContact.pending]: state => {
       state.isLoading = true;
